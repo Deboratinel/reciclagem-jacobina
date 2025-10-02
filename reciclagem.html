@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reciclagem - Recicla Jacobina</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome para ícones -->
+  <script src="https://kit.fontawesome.com/a81368914c.js" crossorigin="anonymous"></script>
+
+  <style>
+    /* ---------- Reset e Base ---------- */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Roboto', sans-serif; background: #eef2f7; color: #333; line-height: 1.6; }
+    a { text-decoration: none; }
+
+    /* ---------- Cabeçalho ---------- */
+    header {
+      background: linear-gradient(135deg, #28a745, #1e7e34);
+      color: #fff;
+      text-align: center;
+      padding: 40px 20px 60px 20px;
+      position: relative;
+      overflow: hidden;
+    }
+    header h1 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 36px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-shadow: 2px 2px 6px rgba(0,0,0,0.3);
+      margin-bottom: 10px;
+      transition: transform 0.3s, text-shadow 0.3s;
+    }
+    header h1:hover {
+      transform: translateY(-5px) scale(1.05);
+      text-shadow: 4px 4px 10px rgba(0,0,0,0.5);
+    }
+    header p {
+      font-size: 18px;
+      font-weight: 300;
+      color: #e0f2e9;
+      transition: color 0.3s;
+    }
+    header p:hover { color: #d4f0d4; }
+
+    /* ---------- Menu ---------- */
+    nav { margin-top: 20px; }
+    nav a {
+      color: #fff;
+      font-weight: 600;
+      margin: 0 15px;
+      padding: 8px 12px;
+      border-radius: 8px;
+      transition: all 0.3s;
+    }
+    nav a:hover {
+      background: rgba(255,255,255,0.2);
+      transform: scale(1.1);
+      text-shadow: 1px 1px 4px rgba(0,0,0,0.3);
+    }
+
+    /* ---------- Seções ---------- */
+    section { padding: 60px 20px; }
+    h2 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 28px;
+      text-align: center;
+      margin-bottom: 40px;
+      color: #28a745;
+      position: relative;
+      transition: transform 0.3s, color 0.3s;
+    }
+    h2:hover {
+      transform: translateY(-5px);
+      color: #1e7e34;
+    }
+    h2::after {
+      content: '';
+      display: block;
+      width: 80px;
+      height: 4px;
+      background: #28a745;
+      margin: 10px auto 0 auto;
+      border-radius: 2px;
+    }
+
+    /* ---------- Grid de Cards ---------- */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .card {
+      background: #fff;
+      border-radius: 15px;
+      padding: 25px;
+      box-shadow: 0 12px 24px rgba(0,0,0,0.08);
+      transition: all 0.4s ease;
+      border-top: 6px solid #28a745;
+      position: relative;
+      overflow: hidden;
+    }
+    .card:hover {
+      transform: translateY(-10px) scale(1.03);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+    }
+
+    .card h3 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 22px;
+      color: #28a745;
+      margin-bottom: 15px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      transition: transform 0.3s, color 0.3s;
+    }
+    .card:hover h3 {
+      transform: translateY(-3px);
+      color: #1e7e34;
+    }
+
+    .card h3 i {
+      font-size: 24px;
+      transition: transform 0.3s;
+    }
+    .card:hover h3 i {
+      transform: rotate(20deg) scale(1.3);
+      color: #1e7e34;
+    }
+
+    .card p, .lista li {
+      transition: transform 0.3s;
+    }
+    .card:hover p, .card:hover .lista li {
+      transform: translateY(-2px);
+    }
+
+    .lista li { margin-bottom: 8px; font-size: 15px; }
+
+    .nao-reciclavel { border-top-color: #dc3545; }
+    .nao-reciclavel h3 { color: #dc3545; }
+
+    /* ---------- Botão Voltar ---------- */
+    .voltar {
+      display: block;
+      width: fit-content;
+      margin: 40px auto;
+      padding: 14px 25px;
+      background: #28a745;
+      color: #fff;
+      font-family: 'Poppins', sans-serif;
+      font-size: 16px;
+      font-weight: 600;
+      border-radius: 12px;
+      transition: all 0.3s;
+      text-align: center;
+    }
+    .voltar:hover {
+      background: #1e7e34;
+      transform: translateY(-3px) scale(1.05);
+      box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+    }
+
+    /* ---------- Sobre e Contato ---------- */
+    .sobre, .contato {
+      background: #fff;
+      max-width: 900px;
+      margin: 0 auto 40px auto;
+      padding: 30px 25px;
+      border-radius: 15px;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .sobre:hover, .contato:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+    }
+
+    .sobre p, .contato p { margin-bottom: 15px; font-size: 16px; color: #555; }
+    .contato a { color: #28a745; font-weight: 600; }
+    .contato a:hover { text-decoration: underline; }
+
+    /* ---------- Rodapé ---------- */
+    footer {
+      background: #28a745;
+      color: #fff;
+      text-align: center;
+      padding: 25px;
+      font-size: 14px;
+      letter-spacing: 1px;
+    }
+
+    /* ---------- Responsividade ---------- */
+    @media(max-width:768px){
+      header h1 { font-size: 28px; }
+      h2 { font-size: 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Cabeçalho -->
+  <header>
+    <h1>Reciclagem em Jacobina</h1>
+    <p>Transforme seu lixo em um futuro sustentável 🌱</p>
+    <nav>
+      <a href="index.html">Página Inicial</a>
+      <a href="rota.html">Rotas</a>
+      <a href="reciclagem.html">Reciclagem</a>
+      <a href="equipe.html">Equipe/Contato</a>
+    </nav>
+  </header>
+
+  <!-- Recicláveis -->
+  <section>
+    <h2>✅ O que pode ser reciclado</h2>
+    <div class="grid">
+      <div class="card">
+        <h3><i class="fas fa-file-alt"></i> Papel</h3>
+        <ul class="lista">
+          <li>Jornais e revistas</li>
+          <li>Caixas de papelão</li>
+          <li>Folhas de caderno</li>
+        </ul>
+        <p><strong>Atenção:</strong> Deve estar limpo e seco.</p>
+      </div>
+      <div class="card">
+        <h3><i class="fas fa-shopping-bag"></i> Plástico</h3>
+        <ul class="lista">
+          <li>Garrafas PET</li>
+          <li>Sacolas plásticas</li>
+          <li>Potes limpos</li>
+        </ul>
+        <p><strong>Dica:</strong> Lave antes de descartar.</p>
+      </div>
+      <div class="card">
+        <h3><i class="fas fa-wine-bottle"></i> Vidro</h3>
+        <ul class="lista">
+          <li>Garrafas de vidro</li>
+          <li>Potes de conserva</li>
+        </ul>
+        <p><strong>Cuidado:</strong> Embale bem para evitar acidentes.</p>
+      </div>
+      <div class="card">
+        <h3><i class="fas fa-cube"></i> Metal</h3>
+        <ul class="lista">
+          <li>Latas de alumínio</li>
+          <li>Tampas metálicas</li>
+        </ul>
+        <p><strong>Dica:</strong> Amasse latinhas para economizar espaço.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- NÃO recicláveis -->
+  <section>
+    <h2>🚫 O que NÃO pode ser reciclado</h2>
+    <div class="grid">
+      <div class="card nao-reciclavel">
+        <h3><i class="fas fa-file-alt"></i> Papel</h3>
+        <ul class="lista">
+          <li>Papel higiênico</li>
+          <li>Papel engordurado</li>
+        </ul>
+      </div>
+      <div class="card nao-reciclavel">
+        <h3><i class="fas fa-shopping-bag"></i> Plástico</h3>
+        <ul class="lista">
+          <li>Isopor sujo</li>
+          <li>Embalagens engorduradas</li>
+        </ul>
+      </div>
+      <div class="card nao-reciclavel">
+        <h3><i class="fas fa-wine-bottle"></i> Vidro</h3>
+        <ul class="lista">
+          <li>Espelhos</li>
+          <li>Porcelanas</li>
+        </ul>
+      </div>
+      <div class="card nao-reciclavel">
+        <h3><i class="fas fa-cube"></i> Metal</h3>
+        <ul class="lista">
+          <li>Grampos de roupa</li>
+          <li>Objetos enferrujados</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sobre o Projeto -->
+  <section>
+    <h2>🌱 Sobre o Recicla Jacobina</h2>
+    <div class="sobre">
+      <p>O <strong>Recicla Jacobina</strong> é um projeto de conscientização ambiental que busca organizar a coleta de resíduos sólidos na cidade, promovendo a separação correta do lixo e incentivando a população a adotar práticas sustentáveis no dia a dia.</p>
+      <p>O objetivo principal do projeto é reduzir o impacto ambiental, reciclar materiais que ainda podem ser reaproveitados e educar a comunidade sobre a importância da sustentabilidade.</p>
+      <p>Além disso, o projeto promove campanhas educativas em escolas, bairros e comunidades, reforçando a ideia de responsabilidade coletiva e cidadania ambiental.</p>
+    </div>
+  </section>
+
+  <!-- Contato -->
+  <section>
+    <h2>📞 Contato</h2>
+    <div class="contato">
+      <p>E-mail: <a href="mailto:contato@reciclajacobina.com.br">contato@reciclajacobina.com.br</a></p>
+      <p>Telefone: <a href="tel:+5511999999999">(11) 99999-9999</a></p>
+      <p>Redes sociais:</p>
+      <ul class="lista">
+        <li><a href="#">Instagram: @reciclajacobina</a></li>
+        <li><a href="#">Facebook: /ReciclaJacobina</a></li>
+        <li><a href="#">LinkedIn: /company/reciclajacobina</a></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Botão Voltar -->
+  <a href="index.html" class="voltar">⬅️ Voltar para Página Inicial</a>
+
+  <!-- Rodapé -->
+  <footer>
+    <p>♻️ Recicla Jacobina — Juntos por uma cidade mais limpa e sustentável!</p>
+  </footer>
+
+</body>
+</html>

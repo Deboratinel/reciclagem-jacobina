@@ -3,230 +3,193 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Rotas - Recicla Jacobina</title>
+  <title>Página Inicial - Recicla Jacobina</title>
   <style>
-    body { 
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
-      margin: 0; 
-      padding: 0; 
-      background: #f4fdf7; 
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0; padding: 0;
+      background: #f0f8f5;
       color: #333;
       line-height: 1.6;
-      scroll-behavior: smooth;
+      transition: background 0.3s;
     }
-
-    /* Navbar */
-    nav {
-      display: flex;
-      justify-content: center;
-      background: #2e9f6e;
-      padding: 12px 0;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.2);
-      position: sticky;
-      top: 0;
-      z-index: 100;
-    }
-
-    nav a {
+    header {
+      background: linear-gradient(90deg, #2e9f6e, #1b6f4a);
       color: #fff;
-      text-decoration: none;
-      margin: 0 20px;
-      font-weight: bold;
-      transition: color 0.3s;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.2);
     }
-
-    nav a:hover {
-      color: #d4f1e1;
-    }
-
-    header { 
-      background: linear-gradient(90deg, #2e9f6e, #1d704b); 
-      color: #fff; 
-      padding: 30px; 
-      text-align: center; 
-      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-    }
-
     header h1 {
       margin: 0;
-      font-size: 2.2rem;
+      font-size: 2rem;
+      transition: transform 0.3s, text-shadow 0.3s;
     }
-
-    header p {
-      margin: 5px 0 0;
-      font-size: 1rem;
-      opacity: 0.9;
+    header h1:hover {
+      transform: translateY(-5px) scale(1.05);
+      text-shadow: 2px 2px 8px rgba(0,0,0,0.4);
     }
-
-    h2 { 
-      color: #2e9f6e; 
-      margin: 40px 0 20px; 
-      text-align: center; 
-      font-size: 1.8rem;
+    nav {
+      margin-top: 10px;
     }
-
-    .descricao {
-      width: 90%;
-      max-width: 900px;
-      margin: 20px auto;
-      background: #fff;
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 3px 8px rgba(0,0,0,0.1);
-      text-align: center;
-    }
-
-    .mapa-container {
-      width: 90%;
-      max-width: 900px;
-      margin: 0 auto 30px;
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: 0 6px 15px rgba(0,0,0,0.15);
-    }
-
-    .mapa {
-      width: 100%;
-      height: 450px;
-      border: 0;
-    }
-
-    table { 
-      width: 90%; 
-      max-width: 900px; 
-      margin: 30px auto; 
-      border-collapse: collapse; 
-      background: #fff;
-      border-radius: 10px;
-      overflow: hidden;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-    }
-
-    th, td { 
-      padding: 15px 18px; 
-      text-align: left; 
-      font-size: 15px;
-    }
-
-    th { 
-      background: #2e9f6e; 
+    nav a {
       color: #fff;
-      text-transform: uppercase;
-      font-size: 14px;
-      letter-spacing: 1px;
+      margin: 0 15px;
+      font-weight: bold;
+      text-decoration: none;
+      transition: all 0.3s;
+    }
+    nav a:hover {
+      color: #d4f5e5;
+      transform: scale(1.1);
+      text-shadow: 1px 1px 4px rgba(0,0,0,0.3);
     }
 
-    tr:nth-child(even) {
-      background: #f2fdf6;
+    .hero {
+      padding: 60px 20px;
+      text-align: center;
+      background: #e8f5e9;
+      box-shadow: inset 0 4px 10px rgba(0,0,0,0.05);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .hero:hover {
+      transform: translateY(-5px);
+      box-shadow: inset 0 6px 15px rgba(0,0,0,0.08);
+    }
+    .hero h2 {
+      color: #2e9f6e;
+      font-size: 2rem;
+      margin-bottom: 15px;
+      transition: transform 0.3s, color 0.3s;
+    }
+    .hero h2:hover {
+      transform: translateY(-5px);
+      color: #1b6f4a;
+    }
+    .hero p {
+      font-size: 1.1rem;
+      max-width: 700px;
+      margin: 0 auto 20px;
+    }
+    .btn {
+      display: inline-block;
+      padding: 12px 25px;
+      background: #2e9f6e;
+      color: #fff;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: all 0.3s, box-shadow 0.3s, transform 0.3s;
+    }
+    .btn:hover {
+      background: #256f54;
+      transform: translateY(-3px) scale(1.05);
+      box-shadow: 0 8px 15px rgba(0,0,0,0.2);
     }
 
-    tr:hover {
-      background: #dff5e8;
-      transition: 0.3s;
+    .cards {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 20px;
+      padding: 40px 20px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .card {
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      padding: 20px;
+      flex: 1 1 280px;
+      max-width: 320px;
+      text-align: center;
+      transition: transform 0.3s, box-shadow 0.3s;
+      cursor: pointer;
+    }
+    .card:hover {
+      transform: translateY(-10px) scale(1.03);
+      box-shadow: 0 12px 25px rgba(0,0,0,0.2);
+    }
+    .card h3 {
+      color: #2e9f6e;
+      margin-bottom: 10px;
+      transition: transform 0.3s, color 0.3s;
+    }
+    .card:hover h3 {
+      transform: translateY(-3px);
+      color: #1b6f4a;
+    }
+    .card p {
+      font-size: 0.95rem;
+      margin-bottom: 15px;
+      transition: transform 0.3s;
+    }
+    .card:hover p {
+      transform: translateY(-2px);
     }
 
     footer {
-      background: #1d704b;
+      background: #1b6f4a;
       color: #fff;
       text-align: center;
-      padding: 15px;
+      padding: 20px;
       margin-top: 50px;
     }
-
     footer p {
       margin: 5px 0;
       font-size: 0.9rem;
     }
 
-    .legenda {
-      width: 90%;
-      max-width: 900px;
-      margin: 20px auto;
-      background: #e9fdf2;
-      border-left: 6px solid #2e9f6e;
-      padding: 15px;
-      border-radius: 6px;
-      font-size: 0.95rem;
-      color: #444;
+    /* Efeito leve de brilho ao passar o mouse sobre o body */
+    body:hover {
+      background: #f0fef7;
+    }
+
+    @media(max-width:768px){
+      header h1 { font-size: 1.6rem; }
+      .hero h2 { font-size: 1.6rem; }
     }
   </style>
 </head>
 <body>
-  <!-- Navbar -->
-  <nav>
-    <a href="index.html">Início</a>
-    <a href="equipe.html">Equipe</a>
-    <a href="rotas.html">Rotas</a>
-    <a href="contato.html">Contato</a>
-  </nav>
-
   <header>
-    <h1>Rotas de Coleta - Recicla Jacobina</h1>
-    <p>Confira os horários, bairros atendidos e visualize no mapa</p>
+    <h1>Recicla Jacobina ♻️</h1>
+    <nav>
+      <a href="index.html">Início</a>
+      <a href="rota.html">Rotas</a>
+      <a href="reciclagem.html">Reciclagem</a>
+      <a href="equipe.html">Equipe/Contato</a>
+    </nav>
   </header>
 
-  <section class="descricao">
-    <p>O sistema de coleta de lixo de Jacobina foi organizado para atender cada bairro de forma eficiente. 
-       Aqui você pode consultar as <b>rotas de coleta</b>, os <b>horários</b> e <b>dias</b>, além de visualizar 
-       no mapa os locais atendidos. Nosso objetivo é facilitar a vida da população e incentivar a participação no projeto <b>Recicla Jacobina</b>.</p>
+  <section class="hero">
+    <h2>Bem-vindo ao Recicla Jacobina!</h2>
+    <p>Aqui você encontra informações sobre coleta de lixo, rotas de atendimento, dicas de reciclagem e como participar de um futuro mais sustentável para nossa cidade.</p>
+    <a href="rota.html" class="btn">Ver Rotas de Coleta</a>
   </section>
 
-  <h2>Mapa Ilustrativo</h2>
-  <div class="mapa-container">
-    <iframe class="mapa" 
-      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3890.803639938322!2d-40.50726718533518!3d-11.180615591812477!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x71696c8b6d1b7f%3A0x7e5a3f5f98c8a9ea!2sJacobina%2C%20BA!5e0!3m2!1spt-BR!2sbr!4v1696050000000!5m2!1spt-BR!2sbr" 
-      allowfullscreen="" 
-      loading="lazy">
-    </iframe>
-  </div>
-
-  <h2>Tabela de Rotas</h2>
-  <table>
-    <tr>
-      <th>Rota</th>
-      <th>Bairros Atendidos</th>
-      <th>Dias</th>
-      <th>Horário</th>
-    </tr>
-    <tr>
-      <td>01</td>
-      <td>Centro, São José, Félix Tomaz</td>
-      <td>Segunda a Sexta</td>
-      <td>07:00</td>
-    </tr>
-    <tr>
-      <td>02</td>
-      <td>Vila Nova, Catuaba, Cazuzinha</td>
-      <td>Terça e Quinta</td>
-      <td>14:30</td>
-    </tr>
-    <tr>
-      <td>03</td>
-      <td>Bananeira, Peru, Jacobina II</td>
-      <td>Segunda, Quarta e Sexta</td>
-      <td>08:00</td>
-    </tr>
-    <tr>
-      <td>04</td>
-      <td>Mundo Novo, Lagoa Dourada, Mutirão</td>
-      <td>Terça e Quinta</td>
-      <td>09:00</td>
-    </tr>
-  </table>
-
-  <div class="legenda">
-    <b>Legenda:</b>  
-    <ul>
-      <li><b>Rota 01:</b> Áreas centrais e comerciais.</li>
-      <li><b>Rota 02:</b> Regiões residenciais intermediárias.</li>
-      <li><b>Rota 03:</b> Bairros periféricos da cidade.</li>
-      <li><b>Rota 04:</b> Áreas de expansão e novos loteamentos.</li>
-    </ul>
-  </div>
+  <section class="cards">
+    <div class="card">
+      <h3>🚛 Rotas de Coleta</h3>
+      <p>Confira os bairros atendidos, dias e horários de coleta. Planeje-se e contribua para manter a cidade limpa.</p>
+      <a href="rota.html" class="btn">Ver Rotas</a>
+    </div>
+    <div class="card">
+      <h3>♻️ Reciclagem</h3>
+      <p>Aprenda como separar o lixo corretamente e descubra o que pode ser reciclado para ajudar o meio ambiente.</p>
+      <a href="reciclagem.html" class="btn">Saiba Mais</a>
+    </div>
+    <div class="card">
+      <h3>📞 Equipe e Contato</h3>
+      <p>Conheça nossa equipe de desenvolvedores e entre em contato para sugestões ou dúvidas sobre o projeto.</p>
+      <a href="equipe.html" class="btn">Fale Conosco</a>
+    </div>
+  </section>
 
   <footer>
-    <p>Projeto Recicla Jacobina ♻️</p>
-    <p>&copy; 2025 - Todos os direitos reservados</p>
+    <p>Projeto Recicla Jacobina - IFBA Campus Jacobina</p>
+    <p>&copy; 2025 | Desenvolvido pela equipe de extensão</p>
   </footer>
 </body>
 </html>
